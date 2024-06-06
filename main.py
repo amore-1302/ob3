@@ -74,7 +74,8 @@ class Reptile(Animal):  # рептилия
         print(f"{self.name} ядовитая =  {self.poisonous} ")
 
 
-
+def animal_sound(el):
+    el.make_sound()
 
 
 bird = Bird("Воробей", 2, 0.3)
@@ -91,3 +92,9 @@ pit = Reptile("Питон", 10, 0)
 pit.make_sound()
 pit.eat()
 pit.get_poisonous()
+
+print("Задание 3 старт ")
+list_animal = [bird, dog, pit]
+for el in list_animal:
+    animal_sound(el)
+print("Задание 3 завершено ")
