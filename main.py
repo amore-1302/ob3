@@ -16,6 +16,13 @@
 # которые могут иметь специфические методы (например, `feed_animal()` для `ZooKeeper`
 # и `heal_animal()` для `Veterinarian`).
 
+
+class Sotrud():
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+
 class Animal():
     def __init__(self, name, age):
         self.name = name
@@ -74,6 +81,26 @@ class Reptile(Animal):  # рептилия
         print(f"{self.name} ядовитая =  {self.poisonous} ")
 
 
+
+class Zoo():
+    def __init__(self, list_sotrud, list_animal):
+        self.list_sotrud = list_sotrud
+        self.list_animal = list_animal
+
+    def add_sotrud(self, sotrud):
+        self.list_sotrud.append(sotrud)
+
+    def del_sotrud(self, sotrud):
+        self.list_sotrud.remove(sotrud)
+
+    def add_animal(self, animal):
+        self.list_animal.append(animal)
+
+    def del_animal(self, animal):
+        self.list_animal.remove(animal)
+
+
+
 def animal_sound(el):
     el.make_sound()
 
@@ -98,3 +125,8 @@ list_animal = [bird, dog, pit]
 for el in list_animal:
     animal_sound(el)
 print("Задание 3 завершено ")
+
+sotr1 = Sotrud("Петя", 20)
+sotr2 = Sotrud("Вася", 30)
+ist_sotr = [sotr1, sotr2]
+z1 = Zoo(ist_sotr, list_animal)
