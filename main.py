@@ -12,9 +12,9 @@
 # который будет содержать информацию о животных и сотрудниках.
 # Должны быть методы для добавления животных и сотрудников в зоопарк.
 
-#5. Создайте классы для сотрудников, например, `ZooKeeper`, `Veterinarian`,
-# которые могут иметь специфические методы (например, `feed_animal()` для `ZooKeeper`
-# и `heal_animal()` для `Veterinarian`).
+#5. Создайте классы для сотрудников, например, `ZooKeeper` сторож, `Veterinarian`  ветеренар,
+# которые могут иметь специфические методы (например, `feed_animal()`  кормить животеых  для `ZooKeeper`
+# и `heal_animal()`  лечить для `Veterinarian`).
 
 
 class Sotrud():
@@ -22,6 +22,19 @@ class Sotrud():
         self.name = name
         self.age = age
 
+class ZooKeeper(Sotrud):
+    def __init__(self, name, age):
+        super().__init__(name, age)
+
+    def feed_animal(self):
+        print(f"{self.name} кормит животных ")
+
+class Veterinarian(Sotrud):
+    def __init__(self, name, age):
+        super().__init__(name, age)
+
+    def heal_animal(self):
+        print(f"{self.name} лечит животных ")
 
 class Animal():
     def __init__(self, name, age):
@@ -130,3 +143,12 @@ sotr1 = Sotrud("Петя", 20)
 sotr2 = Sotrud("Вася", 30)
 ist_sotr = [sotr1, sotr2]
 z1 = Zoo(ist_sotr, list_animal)
+
+sotr3 = ZooKeeper("Олег", 35)
+z1.add_sotrud( sotr3)
+sotr3.feed_animal()
+
+
+sotr4 = Veterinarian("Айболит", 45)
+z1.add_sotrud( sotr4)
+sotr4.heal_animal()
